@@ -1,0 +1,10 @@
+- name: kube test
+  hosts: all
+  tasks:
+    - name: kube library
+      kubernetes.core.k8s_info:
+        api_version: v1
+        kind: Service
+        name: web
+        namespace: awx
+      register: web_service
