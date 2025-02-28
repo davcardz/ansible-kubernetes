@@ -6,3 +6,7 @@
     kubernetes.core.helm_repository:
       name: stable
       repo_url: "https://kubernetes.github.io/ingress-nginx"
+
+  - name: Gather Helm env plugin info
+    kubernetes.core.helm_plugin_info:
+      plugin_name: env
