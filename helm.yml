@@ -1,5 +1,7 @@
 - name: kube test
   hosts: all
+  vars:
+    ansible_connection: kubernetes.core.kubectl
   tasks:
 
   - name: Add stable chart repo
