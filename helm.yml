@@ -10,7 +10,7 @@
   - name: Install Helm env plugin
     kubernetes.core.helm_plugin:
       plugin_path: https://github.com/adamreese/helm-env
-      state: prese
+      state: present
 
   - name: Gather Helm env plugin info
     kubernetes.core.helm_plugin_info:
