@@ -12,19 +12,22 @@
       kind: Namespace
       state: present
 
-  - name: Add stable chart repo
-    kubernetes.core.helm_repository:
-      name: stable
-      repo_url: "https://argoproj.github.io/argo-helm
+  - name: Fix directory
+    ansible.builtin.set_fact:
+      download_path: "{{ playbook_dir }}/download"
 
- - name: Deploy latest version 
-   kubernetes.core.helm:
-    name: argocd
-    chart_ref: stable/argo-cd
-    release_namespace: argocd
-    values:
-      replicas: 2
- 
+  - name: Creates directory
+    ansible.builtin.file:
+      path: "{{ download_path }}"
+      state: directory
+
+  - name: Download something to Ansible Controller
+    delegate_to: localhost
+    get_url:
+     url: "https://raw.githubusercontent.com/argoproj/argo-cd/v2.14.6/manifests/install.yaml"
+     dest: "{{ download_path }}"
+     #owner: "{{ ansible_user }}"
+  
   - name: Argocd deploy
     kubernetes.core.k8s:
       state: present
