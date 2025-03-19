@@ -12,17 +12,26 @@
       kind: Namespace
       state: present
 
+ - name: Fix directory
+   ansible.builtin.file:
+     download_path: "{{ playbokk_dir }}/download"
+
+ - name: Creates directory
+   ansible.builtin.file:
+     path: "{{ download_path }}"
+     state: directory
+
   - name: Download something to Ansible Controller
     delegate_to: localhost
     get_url:
      url: "https://raw.githubusercontent.com/argoproj/argo-cd/v2.14.6/manifests/install.yaml"
-     dest: "/tmp/{{ ansible_user }}"
+     dest: "{{ download_path }}"
      #owner: "{{ ansible_user }}"
   
   - name: Argocd deploy
     kubernetes.core.k8s:
       state: present
-      src: "/tmp/{{ ansible_user }}/install.yaml" 
+      src: "{{ download_path }}/install.yaml" 
       namespace: argocd
 
   - name: Get a list of all pods from argocd
