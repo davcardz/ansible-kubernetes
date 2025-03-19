@@ -17,21 +17,14 @@
       name: stable
       repo_url: "https://argoproj.github.io/argo-helm
 
- - name: Deploy latest version 
-   kubernetes.core.helm:
-    name: argocd
-    chart_ref: stable/argo-cd
-    release_namespace: argocd
-    values:
+  - name: Deploy latest version 
+    kubernetes.core.helm:
+     name: argocd
+     chart_ref: stable/argo-cd
+     release_namespace: argocd
+     values:
       replicas: 2
  
-  - name: Argocd deploy
-    kubernetes.core.k8s:
-      state: present
-      src: "{{ download_path }}/install.yaml" 
-      kind: Deployment
-      namespace: argocd
-
   - name: Get a list of all pods from argocd
     kubernetes.core.k8s_info:
       kind: Pod
