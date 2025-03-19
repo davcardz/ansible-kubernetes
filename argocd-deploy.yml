@@ -14,7 +14,7 @@
 
   - name: Fix directory
     ansible.builtin.file:
-      download_path: "{{ playbokk_dir }}/download"
+      download_path: "{{ playbook_dir }}/download"
 
   - name: Creates directory
     ansible.builtin.file:
