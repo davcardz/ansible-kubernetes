@@ -30,7 +30,3 @@
       kind: Pod
       namespace: argocd
     register: pod_list
-
-  - name: Print pod list
-    ansible.builtin.debug:
-      msg: "{{ pod_list }}"
