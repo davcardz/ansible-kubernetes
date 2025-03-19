@@ -34,4 +34,4 @@
 
   - name: Pod List
     ansible.builtin.debug:
-      msg:  {{ pod_list }}
+      msg: "{{ pod_list }}"
