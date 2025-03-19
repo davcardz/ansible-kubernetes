@@ -12,7 +12,7 @@
       kind: Namespace
       state: present
 
- -  name: Download something to Ansible Controller
+  - name: Download something to Ansible Controller
     delegate_to: localhost
     get_url:
      url: "https://raw.githubusercontent.com/argoproj/argo-cd/v2.14.6/manifests/install.yaml"
