@@ -11,11 +11,18 @@
       api_version: v1
       kind: Namespace
       state: present
+
+ -  name: Download something to Ansible Controller
+    delegate_to: localhost
+    get_url:
+     url: "https://raw.githubusercontent.com/argoproj/argo-cd/v2.14.6/manifests/install.yaml"
+     dest: "/tmp/{{ ansible_user }}"
+     owner: "{{ ansible_user }}"
   
   - name: Argocd deploy
     kubernetes.core.k8s:
       state: present
-      src: https://raw.githubusercontent.com/argoproj/argo-cd/v2.14.6/manifests/install.yaml
+      src: "/tmp/{{ ansible_user }}/install.yaml" 
       namespace: argocd
 
   - name: Get a list of all pods from argocd
