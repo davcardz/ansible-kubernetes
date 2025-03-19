@@ -25,5 +25,5 @@
     register: pod_list
 
   - name: Print pod list
-    ansiible.builtin.debug:
+    ansible.builtin.debug:
       msg: "{{ pod_list }}"
