@@ -32,6 +32,7 @@
     kubernetes.core.k8s:
       state: present
       src: "{{ download_path }}/install.yaml" 
+      kind: Deployment
       namespace: argocd
 
   - name: Get a list of all pods from argocd
