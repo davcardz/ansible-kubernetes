@@ -4,10 +4,10 @@
   #  ansible_connection: kubernetes.core.kubectl
   tasks:
 
-  #- name: Add stable chart repo
-  #  kubernetes.core.helm_repository:
-  #    name: stable
-  #    repo_url: "https://kubernetes.github.io/ingress-nginx"
+  - name: Add stable chart repo
+    kubernetes.core.helm_repository:
+      name: stable
+      repo_url: "https://kubernetes.github.io/ingress-nginx"
 
   - name: Gather Helm env plugin info
     kubernetes.core.helm_plugin_info:
