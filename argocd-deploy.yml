@@ -15,7 +15,7 @@
   - name: Add stable chart repo
     kubernetes.core.helm_repository:
       name: stable
-      repo_url: "https://argoproj.github.io/argo-helm
+      repo_url: "https://argoproj.github.io/argo-helm"
 
   - name: Deploy latest version 
     kubernetes.core.helm:
@@ -30,3 +30,8 @@
       kind: Pod
       namespace: argocd
     register: pod_list
+
+
+  - name: Pod List
+    ansible.builtin.debug:
+      msg:  {{ pod_list }}
