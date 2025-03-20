@@ -25,3 +25,7 @@
       ansible.builtin.set_fact:
         connectivity:  "{{ 'OK' if ping_status is defined and ping_status.ping is defined and ping_status.ping=='pong' else 'NOK' }} "
         cacheable: yes
+   
+    - name: gather all facts for {{ inventory_hostname }}
+      debug:
+        var: ansible_facts
