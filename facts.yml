@@ -5,16 +5,16 @@
   vars:
     ansible_python_interpreter: auto_silent
   tasks:
-    - name: A
-      become: true
-      ansible.builtin.setup:
-        gather_subset:
-          - '!all'
-          - '!min'
-          - '!env'
-    - name: B
-      ansible.builtin.debug:
-        msg: "{{ ansible_env }}"
+    #- name: A
+    #  become: true
+    #  ansible.builtin.setup:
+    #    gather_subset:
+    #      - '!all'
+    #      - '!min'
+    #      - '!env'
+    #- name: B
+    #  ansible.builtin.debug:
+    #    msg: "{{ ansible_env }}"
 
     - name: Install Helm env plugin
       ansible.builtin.ping:
