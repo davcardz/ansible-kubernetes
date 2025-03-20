@@ -1,6 +1,6 @@
 - name: CXonn
   hosts: all, !deblaptop1
-  become: true
+  #become: true
   gather_facts: false
   vars:
     ansible_python_interpreter: auto_silent
