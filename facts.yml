@@ -18,4 +18,10 @@
 
     - name: Install Helm env plugin
       ansible.builtin.ping:
+      register: ping_status
+      ignore_errors: yes
 
+    - name: Setting facts so that they will be persisted in the fact cache
+      ansible.builtin.set_fact:
+        connectivity:  "{{ 'OK' if ping_status is defined and ping_status.ping is defined and ping_status.ping=='pong' else 'NOK' }} "
+        cacheable: yes
