@@ -1,6 +1,8 @@
 - name: CXonn
   hosts: all
   gather_facts: false
+  become: yes
+  become_method: su
   tasks:
     - name: A
       become: true
