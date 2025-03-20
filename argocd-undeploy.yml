@@ -1,0 +1,14 @@
+- name: ArgoCD
+  hosts: all
+  #vars:
+  collections:
+  - kubernetes.core
+  tasks:
+
+  - name: Create argocd k8s namespace
+    kubernetes.core.k8s:
+      name: argocd
+      api_version: v1
+      kind: Namespace
+      state: absent
+
