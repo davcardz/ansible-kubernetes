@@ -1,6 +1,5 @@
 - name: CXonn
   hosts: all
-  become: true
   gather_facts: false
   tasks:
     - name: A
