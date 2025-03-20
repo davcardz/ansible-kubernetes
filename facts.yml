@@ -1,0 +1,19 @@
+- name: CXonn
+  hosts: all
+   become: true
+  gather_facts: false
+  tasks:
+    - name: A
+      become: true
+      ansible.builtin.setup:
+        gather_subset:
+          - '!all'
+          - '!min'
+          - '!env'
+    - name: B
+      ansible.builtin.debug:
+        msg: "{{ ansible_env }}"
+
+    - name: Install Helm env plugin
+      ansible.builtin.ping:
+
