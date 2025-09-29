@@ -1,0 +1,20 @@
+- name: Hashicorp Vault Deployment
+  hosts: all
+  tasks:
+
+  - name: Add stable Hashicorp Vault Chart Repository
+    kubernetes.core.helm_repository:
+      name: stable
+      repo_url: "https://helm.releases.hashicorp.com"
+
+  - name: Deploy stable Hashicorp Vault Chart  namespace with values
+    kubernetes.core.helm:
+      name: hashicorp_vault
+      chart_ref: hashicorp/vault
+      namespace: vault
+      values:
+        replicas: 3
+      values_files:
+      - files/values.yml
+         
+    
