@@ -4,7 +4,7 @@
 
   - name: Add stable Hashicorp Vault Chart Repository
     kubernetes.core.helm_repository:
-      name: stable
+      name: hashicorp
       repo_url: "https://helm.releases.hashicorp.com"
 
   - name: Deploy stable Hashicorp Vault Chart  namespace with values
