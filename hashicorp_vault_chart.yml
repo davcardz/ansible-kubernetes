@@ -1,5 +1,5 @@
 - name: Hashicorp Vault Deployment
-  hosts: all
+  hosts: alla
   tasks:
 
   - name: Add stable Hashicorp Vault Chart Repository
