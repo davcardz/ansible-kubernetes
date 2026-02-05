@@ -1,5 +1,5 @@
 - name: Gitlab Deployment
-  hosts: alla
+  hosts: all
   tasks:
 
   - name: Add stable Gitlab Chart Repository
