@@ -15,4 +15,19 @@
       namespace: gitlab
       values:
         replicas: 3
+        timeput: 600s
+      set_values:
+        - value: global.hosts.domain=davcar.com/gitlab
+          value_type: string
+        - value: global.hosts.externalIP=10.10.10.10
+          value_type: string
+        - value: certmanager-issuer.email=david.carrio@gmail.com
+          value_type: string  
+        - value: global.edition=ce
+          value_type: string  
+        - value: certmanager.install=false
+          value_type: string
     
+
+
+

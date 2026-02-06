@@ -1,0 +1,11 @@
+cat > /tmp/clusteradmin-service-account.yaml <<EOF
+apiVersion: v1
+kind: Secret
+metadata:
+  name: clusteradmin-secret
+  annotations: 
+    kubernetes.io/service-account.name: clusteradmin-service-account
+type: kubernetes.io/service-account-token
+EOF
+
+kubectl get secret clusteradmin-secret  -n default -o jsonpath="{['data']['ca\.crt']}" | base64 --decode
