@@ -1,0 +1,13 @@
+- name: Test connexió Kind
+  hosts: localhost
+  connection: local
+  tasks:
+    - name: Llistar nodes del clúster
+      kubernetes.core.k8s_info:
+        kind: Node
+      register: nodes_list
+
+    - name: Mostrar nodes
+      debug:
+        msg: "He trobat els nodes: {{ nodes_list | json_query('resources[*].metadata.name') }}"
+
