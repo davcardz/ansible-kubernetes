@@ -5,10 +5,10 @@
 
     - name: Prova conexió
       kubernetes.core.k8s:
-    	definition:
-      	  apiVersion: v1
-      	  kind: Pod
-      	  metadata:
+        definition:
+          apiVersion: v1
+          kind: Pod
+          metadata:
             name: test-connection
         validate_certs: no
 
