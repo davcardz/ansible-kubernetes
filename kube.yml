@@ -1,12 +1,14 @@
 - name: kube test
-  hosts: all
+  hosts: localhost
+  connection: local
   tasks:
+
     - name: Prova conexió
       kubernetes.core.k8s:
     	definition:
-      	 apiVersion: v1
-      	 kind: Pod
-      	 metadata:
-          name: test-connection
-      validate_certs: no
+      	  apiVersion: v1
+      	  kind: Pod
+      	  metadata:
+            name: test-connection
+        validate_certs: no
 
