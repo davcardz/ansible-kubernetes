@@ -5,10 +5,11 @@
 
     - name: Prova conexió
       kubernetes.core.k8s:
-        definition:
-          apiVersion: v1
-          kind: Pod
-          metadata:
-            name: test-connection
-        validate_certs: no
+        api_version: v1
+        kind: Service
+        name: web
+        namespace: awx
+        namespace: default
+      register: web_service
+
 
